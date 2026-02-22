@@ -1,3 +1,4 @@
 configstore/
 **/.DS_Store
 **/AGENTS.md
+**/*.log
