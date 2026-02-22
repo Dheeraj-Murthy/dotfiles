@@ -13,5 +13,6 @@ return {
             signcolumn = "no",
         },
         columns = {},
+        delete_to_trash = true,
     },
 }
