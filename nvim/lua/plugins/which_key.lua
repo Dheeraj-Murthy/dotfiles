@@ -23,6 +23,7 @@ return {
                 { "]", group = "next" },
                 { "g", group = "goto" },
                 { "z", group = "fold" },
+                { "<leader>t", group = "telescope" },
                 {
                     "<leader>b",
                     group = "buffer",

@@ -13,7 +13,8 @@
     "xilopaint",
     "validate",
     "dead_hikikomori",
-    "mateus_badalotti"
+    "mateus_badalotti",
+    "jomifepe"
   ],
   "platforms": [
     "macOS",
@@ -98,6 +99,29 @@
         },
         "required": [
           "id"
+        ]
+      },
+      "confirmation": true
+    },
+    {
+      "name": "killall-process",
+      "title": "(Force) Kill All Processes by Name",
+      "description": "Terminates all processes matching a given name using killall (macOS) or taskkill /IM (Windows). Force kill requires enabling sudo authentication with touchID on macOS, admin rights on Windows.",
+      "instructions": "Kill all processes matching a given name using killall (macOS) or taskkill /IM (Windows).\nProvide the exact process name. All running instances with that name will be terminated.",
+      "input": {
+        "type": "object",
+        "properties": {
+          "processName": {
+            "type": "string",
+            "description": "Exact process name to kill all instances of (e.g. \"node\", \"Google Chrome Helper\")"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "Whether to force kill with elevated privileges"
+          }
+        },
+        "required": [
+          "processName"
         ]
       },
       "confirmation": true
@@ -700,6 +724,51 @@
           },
           {
             "meetsCriteria": "Kills only the main UpNote process, as no helpers and/or related processes were specified"
+          }
+        ]
+      },
+      {
+        "input": "@kill-process kill all node processes",
+        "mocks": {
+          "killall-process": {
+            "success": true,
+            "message": "Killed all \"node\" processes"
+          }
+        },
+        "expected": [
+          {
+            "callsTool": {
+              "name": "killall-process",
+              "arguments": {
+                "processName": "node"
+              }
+            }
+          },
+          {
+            "meetsCriteria": "Kills all node processes using the killall tool"
+          }
+        ]
+      },
+      {
+        "input": "@kill-process force kill all Google Chrome Helper processes",
+        "mocks": {
+          "killall-process": {
+            "success": true,
+            "message": "Killed all \"Google Chrome Helper\" processes"
+          }
+        },
+        "expected": [
+          {
+            "callsTool": {
+              "name": "killall-process",
+              "arguments": {
+                "processName": "Google Chrome Helper",
+                "force": true
+              }
+            }
+          },
+          {
+            "meetsCriteria": "Force kills all Google Chrome Helper processes using elevated privileges"
           }
         ]
       }

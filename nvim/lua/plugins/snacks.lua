@@ -78,15 +78,11 @@ return {
                 explorer = {},
             },
         },
+        zen = { enabled = false },
         quickfile = { enabled = true },
         scroll = { enabled = false },
         statuscolumn = { enabled = false },
         words = { enabled = false },
-        zen = {
-            toggles = {
-                dim = false,
-            },
-        },
     },
 
     keys = {

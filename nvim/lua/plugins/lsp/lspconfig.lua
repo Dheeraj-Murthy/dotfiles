@@ -31,11 +31,12 @@ return {
             local keymap = vim.keymap.set
             local opts = { buffer = bufnr, silent = true }
 
-            keymap("n", "gd", vim.lsp.buf.definition, opts)
-            keymap("n", "gD", vim.lsp.buf.declaration, opts)
-            keymap("n", "gi", vim.lsp.buf.implementation, opts)
-            keymap("n", "gt", vim.lsp.buf.type_definition, opts)
-            keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+            local builtin = require("telescope.builtin")
+
+            keymap("n", "gd", builtin.lsp_definitions, opts)
+            keymap("n", "gr", builtin.lsp_references, opts)
+            keymap("n", "gi", builtin.lsp_implementations, opts)
+            keymap("n", "gt", builtin.lsp_type_definitions, opts)
             keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
             if client.server_capabilities.documentFormattingProvider then
@@ -107,6 +108,7 @@ return {
                 "--enable-config",
                 "--query-driver=/opt/homebrew/opt/llvm/bin/clang++",
             },
+            root_dir = require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
             capabilities = custom_caps,
             init_options = {
                 clangdFileStatus = true,

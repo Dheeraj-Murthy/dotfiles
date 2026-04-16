@@ -14,11 +14,11 @@ vim.cmd("set laststatus=3")
 
 -- mini sessions autosave debugging
 -- Autocommand to print a message when session is written on exit
-vim.api.nvim_create_autocmd('VimLeavePre', {
+vim.api.nvim_create_autocmd("VimLeavePre", {
     callback = function()
         local msessions = require("mini.sessions")
         local ok = pcall(function()
-            msessions.write('autosave') -- must match your `file` setting if set
+            msessions.write("autosave") -- must match your `file` setting if set
         end)
         if ok then
             vim.schedule(function()
@@ -35,13 +35,19 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
 })
 
-
-
 vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()
         local clients = vim.lsp.get_clients({ bufnr = 0 })
         if #clients > 0 then
             vim.lsp.buf.format({ async = false })
         end
-    end
+    end,
+})
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        local arg = vim.fn.argv(0)
+        if arg == "." then
+            require("oil").open()
+        end
+    end,
 })

@@ -1,23 +1,19 @@
-return {}
--- return {
---   {
---     "folke/zen-mode.nvim",
---     lazy = false,
---     opts = {
---       plugins = {
---         twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
---       }
---     },
---     config = function()
---       require("zen-mode").setup({
---         plugins = {
---           twilight = { enabled = false }, -- Disable Twilight inside Zen Mode
---         }
---       })
---     end
---   },
---   -- {
---   --   "folke/twilight.nvim",
---   --   enabled = false, -- Completely disable Twilight
---   -- }
--- }
+return {
+    {
+        "folke/zen-mode.nvim",
+        lazy = false,
+        opts = {
+            plugins = {
+                twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
+            },
+            -- on_open = function()
+            --     require("twilight").disable() -- 💥 force it OFF
+            -- end,
+        },
+    },
+    -- Lua
+    {
+        "folke/twilight.nvim",
+        enabled = false,
+    },
+}

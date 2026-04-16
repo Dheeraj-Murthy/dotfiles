@@ -1,7 +1,7 @@
 {
   "plugin": [
-    "oh-my-opencode",
-    "opencode-antigravity-auth@1.5.1"
+    "oh-my-openagent",
+    "opencode-antigravity-auth@1.6.0"
   ],
   "provider": {
     "google": {

@@ -1,37 +1,72 @@
--- Keymaps are automatically loaded on the VeryLazy event
+-- =====================================================
+-- Leader Key
+-- =====================================================
+vim.g.mapleader = " "
+local map = vim.keymap.set
 
---^ General Keymaps
--- this is the command for command enter. escape into a new line from withing a line
-vim.keymap.set("n", "696969", "<Esc>o", { noremap = true, silent = true })
-vim.keymap.set("n", "<D-CR>", "<Esc>o", { noremap = true, silent = true })
--- this is the keymap for command del. I have already set up del to return hex code 0x16 in iterm2 setting so that corrensponds to ctrl u this command just deletes the entire line
-vim.keymap.set("n", "<C-u>", ":<C-u>normal! dd<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "<D-Del>", "<Esc>d0<CR>", { noremap = true, silent = true })
--- this is the key map to set command-s to save the current file
-vim.keymap.set({ "n", "i" }, "696970", "<Esc>:w<CR>",
-    { noremap = true, silent = true, desc = "Save File" })
-vim.keymap.set({ "n", "i" }, "<D-s>", "<Esc>:w<CR>", { noremap = true, silent = true, desc = "Save File" })
-vim.keymap.set({ "n", "i" }, "<D-S>", "<Esc>:w<CR>", { noremap = true, silent = true, desc = "Save File" })
--- this is the select all on pressing cmd-a keymap
-vim.keymap.set({ "i", "n" }, "696971", "ggVG", { noremap = true, silent = true })
-vim.keymap.set({ "i", "n" }, "<D-a>", "ggVG", { noremap = true, silent = true })
--- this is the keymap to remove the delete functionality of ctrl - u and make it go half page up
-vim.keymap.set("n", "42069", "<C-u>", { noremap = true, silent = true, desc = "" })
--- this is the command to set nvim to paste only from the yank buffer
-vim.api.nvim_set_keymap("v", "p", '"_dp', { noremap = true, silent = true, desc = "continnual paste" })
-vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true, silent = true, desc = "delete does not go to clipboard" })
-vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true, silent = true, desc = "delete does not go to clipboard" })
-vim.api.nvim_set_keymap("v", "x", '"_x', { noremap = true, silent = true, desc = "delete does not go to clipboard" })
+-- =====================================================
+-- General Keymaps
+-- =====================================================
 
+-- Insert a new line below (like Cmd+Enter behavior)
+map("n", "696969", "<Esc>o", { noremap = true, silent = true })
+map("n", "<D-CR>", "<Esc>o", { noremap = true, silent = true })
 
--- keymap to open current file in finder
-vim.keymap.set({ "n", "v" }, "<leader>fo", function()
+-- Delete entire line using Cmd+Delete
+-- (iTerm sends hex 0x16 mapped to <C-u>)
+map("n", "<C-u>", ":<C-u>normal! dd<CR>", { noremap = true, silent = true })
+
+-- Save file (Cmd+S)
+map({ "n", "i" }, "696970", "<Esc>:w<CR>", { noremap = true, silent = true, desc = "Save File" })
+map({ "n", "i" }, "<D-s>", "<Esc>:w<CR>", { noremap = true, silent = true, desc = "Save File" })
+map({ "n", "i" }, "<D-S>", "<Esc>:w<CR>", { noremap = true, silent = true, desc = "Save File" })
+
+-- Select entire buffer (Cmd+A)
+map({ "i", "n" }, "696971", "ggVG", { noremap = true, silent = true })
+map({ "i", "n" }, "<D-a>", "ggVG", { noremap = true, silent = true })
+
+-- Restore default <C-u> behavior (half-page up)
+-- (workaround mapping via custom keycode)
+map("n", "42069", "<C-u>", { noremap = true, silent = true, desc = "" })
+
+-- =====================================================
+-- Clipboard / Editing Behavior
+-- =====================================================
+
+-- Paste without overwriting yank register (visual mode)
+vim.api.nvim_set_keymap("v", "p", '"_dp', { noremap = true, silent = true, desc = "Continual paste" })
+
+-- Delete without affecting default register
+vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true, silent = true, desc = "Delete without yank" })
+vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true, silent = true, desc = "Delete char without yank" })
+vim.api.nvim_set_keymap("v", "x", '"_x', { noremap = true, silent = true, desc = "Delete selection without yank" })
+
+-- =====================================================
+-- Zen Mode
+-- =====================================================
+
+-- Remove default LazyVim Zen mappings
+vim.keymap.del("n", "<Space>uz")
+vim.keymap.del("n", "<Space>uZ")
+
+-- Custom Zen toggle
+map("n", "<leader>uz", ":ZenMode<CR>", { noremap = true, silent = true, desc = "Zen Mode" })
+
+-- =====================================================
+-- File / System Utilities
+-- =====================================================
+
+-- Open current working directory in Finder (macOS)
+map({ "n", "v" }, "<leader>fo", function()
     vim.cmd("silent !open .")
 end, { desc = "Open folder in Finder" })
 
---^ Plugin specific keymaps
--- mini sesssions autosave on quit
-vim.keymap.set("n", "<leader>qq", function()
+-- =====================================================
+-- Plugin-specific Keymaps
+-- =====================================================
+
+-- Mini.sessions: autosave session before quitting
+map("n", "<leader>qq", function()
     local msessions = require("mini.sessions")
     local ok = pcall(function()
         msessions.write("autosave")
@@ -42,24 +77,13 @@ vim.keymap.set("n", "<leader>qq", function()
     vim.cmd("qa")
 end, { desc = "Auto-save session and Quit All" })
 
--- Define key mappings only for Quarto filetypes
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "quarto",
-    callback = function()
-        local opts = { buffer = true, noremap = true, silent = true }
-        -- Render the document
-        vim.keymap.set("n", "<leader>pr", ":w<CR>:QuartoPreview<CR>", opts)
-        -- Close the preview
-        vim.keymap.set("n", "<leader>pc", ":QuartoClosePreview<CR>", opts)
-        -- Render a specific code cell (useful for quick testing)
-        vim.keymap.set("n", "<leader>pq", ":QuartoSendAbove<CR>", opts)
-        -- Render and preview the entire document
-        vim.keymap.set("n", "<leader>pp", ":QuartoPreview<CR>", opts)
-    end,
-})
+-- =====================================================
+-- Competitive Programming / C++ Runner
+-- =====================================================
 
--- vim.keymap.set({ "v" }, "s", "s");
-
+-- Compile and run current C++ file
+-- Input:  input.txt
+-- Output: output.txt (live tailed)
 vim.api.nvim_set_keymap(
     "n",
     "<leader>rr",
@@ -67,11 +91,25 @@ vim.api.nvim_set_keymap(
     { noremap = true, silent = true }
 )
 
+-- =====================================================
+-- File Explorer
+-- =====================================================
 
-vim.keymap.set("n", "<leader>e", function() Snacks.explorer() end, { desc = "Toggle SnacksTree" })
+-- Toggle Snacks explorer
+map("n", "<leader>e", function()
+    Snacks.explorer()
+end, { desc = "Toggle Snacks Explorer" })
 
--- Telescope keybindings
-vim.keymap.set("n", "<leader> ", "<cmd>Telescope find_files<cr>")
-vim.keymap.set("n", "<leader>/", "<cmd>Telescope live_grep<cr>")
-vim.keymap.set("n", "<leader>bf", "<cmd>Telescope buffers<cr>")
-vim.g.mapleader = " "
+-- =====================================================
+-- Telescope (Fuzzy Finder)
+-- =====================================================
+
+map("n", "<leader> ", "<cmd>Telescope find_files<cr>")
+map("n", "<leader>/", "<cmd>Telescope live_grep<cr>")
+map("n", "<leader>tb", "<cmd>Telescope buffers<cr>")
+map("n", "<leader>:", "<cmd>Telescope command_history<cr>", { desc = "Command History" })
+map("n", "<leader>tk", "<cmd>Telescope keymaps<cr>", { desc = "Keymaps" })
+map("n", "<leader>tr", "<cmd>Telescope registers<cr>", { desc = "Registers" })
+map("n", "<leader>tj", "<cmd>Telescope jumplist<cr>", { desc = "Jump List" })
+map("n", "<leader>tm", "<cmd>Telescope marks<cr>", { desc = "Marks" })
+map("n", "<leader>td", "<cmd>Telescope diagnostics<cr>", { desc = "Diagnostics" })

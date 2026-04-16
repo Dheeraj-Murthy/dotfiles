@@ -4,9 +4,9 @@
 
 [mgr]
 ratio          = [ 1, 4, 3 ]
-sort_by        = "alphabetical"
+sort_by        = "mtime"
 sort_sensitive = false
-sort_reverse 	 = false
+sort_reverse 	 = true
 sort_dir_first = true
 sort_translit  = false
 linemode       = "none"
@@ -114,6 +114,8 @@ spotters = [
 	{ mime = "video/*", run = "video" },
 	# Virtual file system
 	{ mime = "vfs/*", run = "vfs" },
+  # PDF
+  # { mime = "application/pdf", run = "pdf" },
 	# Error
 	{ mime = "null/*", run = "null" },
 	# Fallback
@@ -239,3 +241,7 @@ sort_by      	 = "none"
 sort_sensitive = false
 sort_reverse 	 = false
 sort_translit  = false
+
+# [manager]
+# sort_by = "created"
+# sort_reverse = true   # optional: newest first

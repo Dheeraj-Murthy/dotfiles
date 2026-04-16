@@ -11,27 +11,29 @@ recent.capture_file: /Users/dheerajmurthy/Dev/cyberSec/zense_ctf/dns_pcapng/traf
 recent.capture_file: /Users/dheerajmurthy/Dev/cyberSec/zense_ctf/dns_pcapng/artifacts/http_chunks.pcapng
 recent.capture_file: /Users/dheerajmurthy/Dev/cyberSec/zense_ctf/dns_pcapng/artifacts/dns_traffic.pcapng
 recent.capture_file: /Users/dheerajmurthy/Dev/cyberSec/zense_ctf/dns_pcapng/artifacts/traffic.pcapng
+recent.capture_file: /Users/dheerajmurthy/Downloads/security-footage-1648933966395.pcap
 
 ######## Recent capture filters (latest first), cannot be altered through command line ########
 
 
 ######## Recent display filters (latest last), cannot be altered through command line ########
 
+recent.display_filter: tcp.stream eq 0
 
 # Main window geometry.
 # Decimal numbers.
-gui.geometry_main_x: 0
+gui.geometry_main_x: 720
 gui.geometry_main_y: 0
-gui.geometry_main_width: 1440
+gui.geometry_main_width: 720
 gui.geometry_main_height: 871
 
 # Main window maximized.
 # true or false (case-insensitive).
-gui.geometry_main_maximized: true
+gui.geometry_main_maximized: false
 
 # Main window geometry state.
 # Hex byte string.
-gui.geometry_main: 01d9d0cb0003000000000000000000000000059f00000382000000000000001c0000059f00000382000000000200000005a0000000000000001c0000059f00000382
+gui.geometry_main: 01d9d0cb00030000000002d0000000000000059f00000382000002d00000001c0000059f00000382000000000000000005a0000002d00000001c0000059f00000382
 
 # Leftalign Action Buttons.
 # true or false (case-insensitive).

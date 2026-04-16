@@ -10,8 +10,8 @@ return {
     enabled = true,
     -- lazy = true,
     config = function()
-        local dap = require "dap"
-        local ui = require "dapui"
+        local dap = require("dap")
+        local ui = require("dapui")
 
         require("dapui").setup()
         require("nvim-dap-virtual-text").setup()
@@ -23,7 +23,7 @@ return {
         dap.adapters.lldb = {
             type = "executable",
             command = "codelldb", -- Use 'codelldb' if installed via Mason
-            name = "lldb"
+            name = "lldb",
         }
 
         dap.configurations.cpp = {
@@ -49,7 +49,7 @@ return {
         -- 🔹 C Configuration (same as C++)
         dap.configurations.c = dap.configurations.cpp
 
-        vim.keymap.set("n", "<leader>d", "", { noremap = "true", desc = "Debugging" });
+        vim.keymap.set("n", "<leader>d", "", { noremap = "true", desc = "Debugging" })
         -- 🔥 Keybindings
         vim.keymap.set("n", "<space>db", dap.toggle_breakpoint, { desc = "toggle breakpoint" })
         -- vim.keymap.set("n", "<space>dc", dap.run_to_cursor, { desc = "run to cursor" })
@@ -65,12 +65,20 @@ return {
         vim.keymap.set("n", "<F4>", dap.step_out, { desc = "step out" })
         vim.keymap.set("n", "<F5>", dap.step_back, { desc = "step back" })
         vim.keymap.set("n", "<leader>dR", dap.restart, { desc = "restart" })
-        vim.keymap.set("n", "<leader>dc", "<Esc>:! clang++ -g -std=c++23 -Wall '%' -o a.out ");
+        vim.keymap.set("n", "<leader>dc", "<Esc>:! clang++ -g -std=c++23 -Wall '%' -o a.out ")
 
         -- 🔹 Auto-open/close DAP UI
-        dap.listeners.before.attach.dapui_config = function() ui.open() end
-        dap.listeners.before.launch.dapui_config = function() ui.open() end
-        dap.listeners.before.event_terminated.dapui_config = function() ui.close() end
-        dap.listeners.before.event_exited.dapui_config = function() ui.close() end
+        dap.listeners.before.attach.dapui_config = function()
+            ui.open()
+        end
+        dap.listeners.before.launch.dapui_config = function()
+            ui.open()
+        end
+        dap.listeners.before.event_terminated.dapui_config = function()
+            ui.close()
+        end
+        dap.listeners.before.event_exited.dapui_config = function()
+            ui.close()
+        end
     end,
 }
