@@ -208,7 +208,7 @@ run = 'move-node-to-workspace 2'
 [[on-window-detected]]
 if.app-id="com.mitchellh.ghostty"
 run= [
-  "layout tiling",
+    "layout tiling",
 ]
 
 
@@ -243,3 +243,7 @@ run = [ 'layout floating'  ]
 if.app-id = 'app.zen-browser.zen'
 run = 'move-node-to-workspace S'
 
+[[on-window-detected]]
+# make preview floating
+if.app-id = 'com.apple.Preview'
+run = 'layout floating'

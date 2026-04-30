@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
         end
     end,
 })
-vim.cmd("colorscheme cyberdream")
+vim.cmd("colorscheme ayu")
 vim.cmd("set laststatus=3")
 
 -- mini sessions autosave debugging
