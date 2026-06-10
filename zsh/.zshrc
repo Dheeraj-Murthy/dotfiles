@@ -35,7 +35,7 @@ export OPENSSL_ROOT_DIR=/opt/homebrew/opt/openssl@3
 # PATH configuration (consolidated)
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/usr/local/texlive/2024/bin/universal-darwin:$PATH"
 export PATH="$HOME/dev/tooling/flutter/bin:$PATH"
 export PATH="$JAVA_HOME/bin:$PATH"
@@ -44,10 +44,10 @@ export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Compiler settings
-export CC=clang
-export CXX=clang++
-export CFLAGS="-I$(brew --prefix graphviz)/include"
-export LDFLAGS="-L$(brew --prefix graphviz)/lib"
+# export CC=clang
+# export CXX=clang++
+# export CFLAGS="-I$(brew --prefix graphviz)/include"
+# export LDFLAGS="-L$(brew --prefix graphviz)/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # Load NVM
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"

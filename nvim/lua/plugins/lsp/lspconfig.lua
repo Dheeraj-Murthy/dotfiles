@@ -132,7 +132,6 @@ return {
             },
             on_attach = function(client, bufnr)
                 on_attach(client, bufnr)
-                print("Clangd attached to buffer " .. bufnr)
                 client.server_capabilities.documentFormattingProvider = true
             end,
         })
@@ -165,7 +164,6 @@ return {
             },
             on_attach = function(client, bufnr)
                 on_attach(client, bufnr)
-                print("Clangd attached to buffer " .. bufnr)
                 client.server_capabilities.documentFormattingProvider = true
             end,
         })
@@ -180,12 +178,6 @@ return {
             on_attach = function(client, bufnr)
                 on_attach(client, bufnr)
                 client.server_capabilities.documentFormattingProvider = true
-                vim.api.nvim_create_autocmd("BufWritePre", {
-                    buffer = bufnr,
-                    callback = function()
-                        vim.lsp.buf.format({ async = false })
-                    end,
-                })
             end,
         })
 

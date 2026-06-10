@@ -11,6 +11,11 @@ vim.api.nvim_create_autocmd("BufReadPre", {
 })
 vim.cmd("colorscheme ayu")
 vim.cmd("set laststatus=3")
+vim.api.nvim_set_hl(0, "Directory", { fg = "#73D0FF", bold = true })
+vim.api.nvim_set_hl(0, "SnacksExplorerDir", { fg = "#73D0FF", bold = true })
+vim.api.nvim_set_hl(0, "SnacksExplorerGitUntracked", { fg = "#8A80A8" })
+vim.api.nvim_set_hl(0, "SnacksPickerGitStatusUntracked", { fg = "#8A80A8" })
+vim.api.nvim_set_hl(0, "SnacksExplorerGitModified", { fg = "#A89060" })
 
 -- mini sessions autosave debugging
 -- Autocommand to print a message when session is written on exit

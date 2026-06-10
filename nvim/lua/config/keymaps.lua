@@ -1,7 +1,3 @@
--- =====================================================
--- Leader Key
--- =====================================================
-vim.g.mapleader = " "
 local map = vim.keymap.set
 
 -- =====================================================
@@ -34,20 +30,16 @@ map("n", "42069", "<C-u>", { noremap = true, silent = true, desc = "" })
 -- =====================================================
 
 -- Paste without overwriting yank register (visual mode)
-vim.api.nvim_set_keymap("v", "p", '"_dp', { noremap = true, silent = true, desc = "Continual paste" })
+map("v", "p", '"_dp', { noremap = true, silent = true, desc = "Continual paste" })
 
 -- Delete without affecting default register
-vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true, silent = true, desc = "Delete without yank" })
-vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true, silent = true, desc = "Delete char without yank" })
-vim.api.nvim_set_keymap("v", "x", '"_x', { noremap = true, silent = true, desc = "Delete selection without yank" })
+map("n", "dd", '"_dd', { noremap = true, silent = true, desc = "Delete without yank" })
+map("n", "x", '"_x', { noremap = true, silent = true, desc = "Delete char without yank" })
+map("v", "x", '"_x', { noremap = true, silent = true, desc = "Delete selection without yank" })
 
 -- =====================================================
 -- Zen Mode
 -- =====================================================
-
--- Remove default LazyVim Zen mappings
-vim.keymap.del("n", "<Space>uz")
-vim.keymap.del("n", "<Space>uZ")
 
 -- Custom Zen toggle
 map("n", "<leader>uz", ":ZenMode<CR>", { noremap = true, silent = true, desc = "Zen Mode" })
@@ -84,12 +76,7 @@ end, { desc = "Auto-save session and Quit All" })
 -- Compile and run current C++ file
 -- Input:  input.txt
 -- Output: output.txt (live tailed)
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>rr",
-    ":w !g++-14 % -o %:r && ./%:r < ./input.txt > ./output.txt && tail -f ./output.txt<CR>",
-    { noremap = true, silent = true }
-)
+map("n", "<leader>rr", ":w !g++-14 % -o %:r && ./%:r < ./input.txt > ./output.txt && tail -f ./output.txt<CR>", { noremap = true, silent = true })
 
 -- =====================================================
 -- File Explorer

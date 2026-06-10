@@ -24,6 +24,9 @@ return {
                             modified = " ●",
                             alternate_file = "",
                         },
+                        highlights = {
+                            inactive = { fg = "#C7C7C7" },
+                        },
                     },
                 },
                 lualine_x = { "diagnostics" },

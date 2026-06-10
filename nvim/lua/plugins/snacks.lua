@@ -27,7 +27,7 @@ return {
                 {
                     pane = 2,
                     section = "terminal",
-                    cmd = "print ",
+                    cmd = ":",
                     height = 8,
                     padding = 0,
                 },
