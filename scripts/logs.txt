@@ -445,3 +445,5 @@ Backup completed and compressed: /Users/dheerajmurthy/Backup/2026-06-07.tar.gz
 Backup completed and compressed: /Users/dheerajmurthy/Backup/2026-06-08.tar.gz
 Backup completed and compressed: /Users/dheerajmurthy/Backup/2026-06-09.tar.gz
 Backup completed and compressed: /Users/dheerajmurthy/Backup/2026-06-10.tar.gz
+Backup completed and compressed: /Users/dheerajmurthy/Backup/2026-06-11.tar.gz
+Backup completed and compressed: /Users/dheerajmurthy/Backup/2026-06-12.tar.gz

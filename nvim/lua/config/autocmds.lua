@@ -40,14 +40,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-    callback = function()
-        local clients = vim.lsp.get_clients({ bufnr = 0 })
-        if #clients > 0 then
-            vim.lsp.buf.format({ async = false })
-        end
-    end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     callback = function()
+--         local clients = vim.lsp.get_clients({ bufnr = 0 })
+--         if #clients > 0 then
+--             vim.lsp.buf.format({ async = false })
+--         end
+--     end,
+-- })
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         local arg = vim.fn.argv(0)

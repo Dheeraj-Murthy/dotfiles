@@ -25,6 +25,12 @@ map({ "i", "n" }, "<D-a>", "ggVG", { noremap = true, silent = true })
 -- (workaround mapping via custom keycode)
 map("n", "42069", "<C-u>", { noremap = true, silent = true, desc = "" })
 
+map({ "n", "v" }, "<leader>cf", function()
+    vim.cmd('echo "Formatting file..."')
+    vim.lsp.buf.format({ async = false })
+    vim.cmd('echo "File formatted."')
+end, { noremap = true, desc = "Format File" })
+
 -- =====================================================
 -- Clipboard / Editing Behavior
 -- =====================================================
@@ -76,7 +82,12 @@ end, { desc = "Auto-save session and Quit All" })
 -- Compile and run current C++ file
 -- Input:  input.txt
 -- Output: output.txt (live tailed)
-map("n", "<leader>rr", ":w !g++-14 % -o %:r && ./%:r < ./input.txt > ./output.txt && tail -f ./output.txt<CR>", { noremap = true, silent = true })
+map(
+    "n",
+    "<leader>rr",
+    ":w !g++-14 % -o %:r && ./%:r < ./input.txt > ./output.txt && tail -f ./output.txt<CR>",
+    { noremap = true, silent = true }
+)
 
 -- =====================================================
 -- File Explorer

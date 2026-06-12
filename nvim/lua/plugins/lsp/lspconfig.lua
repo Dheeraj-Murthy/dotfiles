@@ -39,14 +39,14 @@ return {
             keymap("n", "gt", builtin.lsp_type_definitions, opts)
             keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-            if client.server_capabilities.documentFormattingProvider then
-                vim.api.nvim_create_autocmd("BufWritePre", {
-                    buffer = bufnr,
-                    callback = function()
-                        vim.lsp.buf.format({ async = false })
-                    end,
-                })
-            end
+            -- if client.server_capabilities.documentFormattingProvider then
+            --     vim.api.nvim_create_autocmd("BufWritePre", {
+            --         buffer = bufnr,
+            --         callback = function()
+            --             vim.lsp.buf.format({ async = false })
+            --         end,
+            --     })
+            -- end
         end
 
         lspconfig.emmet_ls.setup({
@@ -63,16 +63,15 @@ return {
             on_attach = on_attach,
         })
 
-        lspconfig.rust_analyzer.setup({
-            capabilities = capabilities,
-            on_attach = function(_, bufnr)
-                vim.api.nvim_create_autocmd("BufWritePre", {
-                    buffer = bufnr,
-                    callback = function()
-                        vim.cmd("RustFmt")
-                    end,
-                })
-            end,
+        lspconfig.rust_analyzer.setup({ capabilities = capabilities,
+            -- on_attach = function(_, bufnr)
+            --     vim.api.nvim_create_autocmd("BufWritePre", {
+            --         buffer = bufnr,
+            --         callback = function()
+            --             vim.cmd("RustFmt")
+            --         end,
+            --     })
+            -- end,
             settings = {
                 ["rust-analyzer"] = {
                     cargo = { allFeatures = true },
