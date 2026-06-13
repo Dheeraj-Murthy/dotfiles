@@ -1,0 +1,16 @@
+:syntax on
+:set bs=2
+:set relativenumber
+:set numberwidth=2
+:set signcolumn=no
+:set ai
+
+" Cursor shape configuration for Vim
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
+"" Restore vertical bar cursor when leaving Vim
+"autocmd VimLeave * silent !echo -ne "\e]50;CursorShape=1\x7"

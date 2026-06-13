@@ -1,0 +1,21 @@
+[user]
+	name = meenigam
+	email = ms.dheerajmurthy@iiitb.ac.in
+	signingkey = /Users/dheerajmurthy/.ssh/id_ed25519.pub
+[core]
+	editor = vim
+[color]
+	ui = true
+[credential]
+	helper = osxkeychain
+[push]
+	autoSetupRemote = true
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

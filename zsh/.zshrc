@@ -1,4 +1,5 @@
 # Initialize fzf (key bindings and completion)
+typeset -U path PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_CTRL_T_COMMAND='fd --type f --exclude node_modules --exclude Library/'
 
@@ -42,13 +43,14 @@ export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 # Compiler settings
 # export CC=clang
 # export CXX=clang++
-# export CFLAGS="-I$(brew --prefix graphviz)/include"
-# export LDFLAGS="-L$(brew --prefix graphviz)/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export CFLAGS="-I$(brew --prefix graphviz)/include"
+export LDFLAGS="-L$(brew --prefix graphviz)/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # Load NVM
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
@@ -86,18 +88,34 @@ conda deactivate
 eval "$(zoxide init zsh)"
 
 # Aliases
-alias ls="colorls"
+alias ls="eza --icons --group-directories-first"
+alias ll="eza -lah --icons"
+alias lt="eza --tree --level=2 --icons"
+alias lg="eza -lah --git"
 alias cls=clear
 alias top=btop
 alias cd=z
+alias npm=pnpm
 
 # Shell options
 set -o vi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit $ZDOTDIR/.p10k.zsh.
+[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 # enables scrolling inside precesses inside tmux
 export LESS='-R --mouse'
+
+export EDITOR="nvim"
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/lib/ruby/gems/4.0.0/bin:$PATH"
