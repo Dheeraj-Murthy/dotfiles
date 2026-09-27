@@ -1,15 +1,36 @@
 # OS & Agent files
 .DS_Store
+
+# Stray agent instruction files, but keep the ones we deliberately track
 AGENTS.md
+!nvim/CLAUDE.md
+!opencode/AGENTS.caveman.md
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
 
 # Configurations
 configstore/
 raycast/
 
-# Zsh history & session state
+# Zsh history, completion cache & session state
 zsh/.zsh_sessions/
 zsh/.zcomp*
+*.zwc
 zsh/.zsh_history
+
+# Per-app runtime state & caches
+cagent/.cagent_first_run
+cagent/user-uuid
+elinks/
+flutter/tool_state
+opencode/opencode-notifier-state.json
+typer/update_cache.json
+wireshark/recent
+wireshark/recent_common
+zed/prompts/
 
 # Logs
 *.log

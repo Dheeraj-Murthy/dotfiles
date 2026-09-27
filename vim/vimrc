@@ -1,9 +1,11 @@
-:syntax on
-:set bs=2
-:set relativenumber
-:set numberwidth=2
-:set signcolumn=no
-:set ai
+syntax on
+set bs=2
+set relativenumber
+set numberwidth=2
+set signcolumn=no
+set ai
+set smartindent
+set autoindent
 
 " Cursor shape configuration for Vim
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"

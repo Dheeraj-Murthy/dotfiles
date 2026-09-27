@@ -1,6 +1,18 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "omlx/Qwen3.5-9B-MLX-4bit",
+  "instructions": [
+    "/Users/dheerajmurthy/.config/opencode/AGENTS.caveman.md"
+  ],
+  "permission": {
+    "skill": {
+      "caveman": "allow",
+      "caveman-commit": "allow",
+      "caveman-compress": "allow",
+      "caveman-help": "allow",
+      "caveman-review": "allow"
+    }
+  },
   "plugin": [
     "opencode-antigravity-auth@1.6.0",
     "opencode-firecrawl",

@@ -3,3 +3,13 @@ package.json
 package-lock.json
 bun.lock
 .trash
+
+# Credentials — never commit
+antigravity-accounts.json
+antigravity-accounts.json.*.tmp
+antigravity-signature-cache.json
+antigravity-logs/
+
+# Runtime state
+opencode-notifier-state.json
+.gitignore
