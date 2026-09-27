@@ -1,0 +1,118 @@
+# Mole Cleanup Preview - 2026-02-03 18:27:42
+#
+# How to protect files:
+# 1. Copy any path below to ~/.config/mole/whitelist
+# 2. Run: mo clean --whitelist
+#
+# Example:
+#   /Users/*/Library/Caches/com.example.app
+#
+
+
+=== User essentials ===
+/Users/dheerajmurthy/Library/Caches  # 5.04GB, 47 items
+/Users/dheerajmurthy/Library/Logs  # 48.5MB, 24 items
+
+=== Finder metadata ===
+
+=== macOS system caches ===
+/Users/dheerajmurthy/Library/Saved Application State  # 253KB, 17 items
+/Users/dheerajmurthy/Library/Autosave Information/Unsaved Xcode Document.xcworkspace  # 12KB
+/Users/dheerajmurthy/Library/Suggestions  # 17.1MB, 18 items
+
+=== Sandboxed app caches ===
+
+=== Browsers ===
+/Users/dheerajmurthy/Library/Caches/com.apple.Safari  # 84KB, 2 items
+/Users/dheerajmurthy/Library/Caches/BraveSoftware/Brave-Browser/Default  # 4.4MB
+/Users/dheerajmurthy/Library/Caches/Firefox/Profiles  # 657.8MB
+/Users/dheerajmurthy/Library/Caches/zen/Profiles  # 182.7MB
+
+=== Cloud storage ===
+
+=== Office applications ===
+
+=== Developer tools ===
+/Users/dheerajmurthy/.bun/install/cache  # 682.8MB, 475 items
+/Users/dheerajmurthy/.cargo/registry/cache  # 125.4MB, 2 items
+/Users/dheerajmurthy/.cargo/git  # 130.2MB, 3 items
+/Users/dheerajmurthy/.oh-my-zsh/cache/grep-alias  # 1KB
+/Users/dheerajmurthy/Library/Caches/Google/AndroidStudio2025.1.3  # 593.7MB, 22 items
+/Users/dheerajmurthy/.android/cache  # 3.1MB, 44 items
+/Users/dheerajmurthy/.gradle/caches  # 2.00GB, 11 items
+/Users/dheerajmurthy/.gradle/daemon  # 197.9MB, 9 items
+/Users/dheerajmurthy/.bundle/cache/compact_index  # 23.9MB
+/Users/dheerajmurthy/Library/Caches/com.figma.Desktop  # 177KB, 3 items
+/Users/dheerajmurthy/Library/Caches/SentryCrash  # 8KB, 2 items
+/Users/dheerajmurthy/Library/Application Support/Code/CachedData  # 83.7MB, 7 items
+/Users/dheerajmurthy/Library/Application Support/Code/DawnGraphiteCache  # 545KB, 5 items
+/Users/dheerajmurthy/Library/Application Support/Code/DawnWebGPUCache  # 545KB, 5 items
+/Users/dheerajmurthy/Library/Application Support/Code/GPUCache  # 5.5MB, 5 items
+/Users/dheerajmurthy/Library/Application Support/Code/CachedExtensionVSIXs  # 804.2MB, 20 items
+/Users/dheerajmurthy/Library/Caches/Homebrew  # 2.30GB, 254 items
+
+=== Development applications ===
+/Users/dheerajmurthy/Library/Caches/com.apple.dt.Xcode  # 553KB, 4 items
+/Users/dheerajmurthy/Library/Developer/Xcode/DerivedData  # 40KB, 2 items
+/Users/dheerajmurthy/Library/Application Support/Code/logs  # 1.7MB, 28 items
+/Users/dheerajmurthy/Library/Application Support/Code/Cache  # 9.1MB, 2 items
+/Users/dheerajmurthy/Library/Application Support/Code/CachedData  # 83.7MB, 7 items
+/Users/dheerajmurthy/Library/Application Support/discord/Cache/Cache_Data  # 264.4MB
+/Users/dheerajmurthy/Library/Caches/com.openai.chat  # 11.6MB, 5 items
+/Users/dheerajmurthy/Library/Caches/com.figma.Desktop  # 177KB, 3 items
+/Users/dheerajmurthy/Library/Caches/com.colliderli.iina  # 6.4MB
+/Users/dheerajmurthy/Library/Caches/org.videolan.vlc  # 284KB
+/Users/dheerajmurthy  # 654KB, 12 items
+/Users/dheerajmurthy/.wget-hsts  # 1KB
+/Users/dheerajmurthy/Library/Caches/notion.id  # 80KB, 2 items
+
+=== Virtual machine tools ===
+
+=== Application Support ===
+
+=== Uninstalled app data ===
+/Users/dheerajmurthy/Library/Caches/com.electron.ollama.ShipIt  # 8KB
+/Users/dheerajmurthy/Library/Logs/com.macpaw.CleanMyMac4  # 7.1MB
+/Users/dheerajmurthy/Library/WebKit/com.grammarly.GRLlamaOnboarding  # 752KB
+/Users/dheerajmurthy/Library/WebKit/com.grammarly.ProjectLlama  # 472KB
+/Users/dheerajmurthy/Library/WebKit/com.macpaw.CleanMyMac4  # 488KB
+/Users/dheerajmurthy/Library/WebKit/com.mathpix.snipping-tool-noappstore  # 460KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.Breakpad.crash_report_sender  # 60KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.Company.ProductName  # 56KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.YourCompany.CrashReportClient  # 56KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.YourCompany.CrashReportClientEditor  # 56KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.boinx.Mousepose4  # 56KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.epicgames.CrashReportClient  # 56KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.epicgames.UnrealEditor  # 64KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.figma.Desktop.dua  # 56KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.google.GoogleUpdater  # 2.0MB
+/Users/dheerajmurthy/Library/HTTPStorages/com.grammarly.GRLlamaOnboarding.binarycookies  # 1KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.grammarly.ProjectLlama  # 232KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.grammarly.ProjectLlama.binarycookies  # 2KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.junebytes.DropNotch  # 60KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.macpaw.CleanMyMac4  # 936KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.macpaw.CleanMyMac4.HealthMonitor  # 168KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.macpaw.CleanMyMac4.HealthMonitor.binarycookies  # 1KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.macpaw.CleanMyMac4.Menu  # 64KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.macpaw.CleanMyMac4.Menu.binarycookies  # 1KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.macpaw.CleanMyMac4.binarycookies  # 2KB
+/Users/dheerajmurthy/Library/HTTPStorages/com.mathpix.snipping-tool-noappstore  # 3.0MB
+/Users/dheerajmurthy/Library/HTTPStorages/com.mathpix.snipping-tool-noappstore.binarycookies  # 1KB
+/Users/dheerajmurthy/Library/HTTPStorages/org.kronenberg.Wine  # 56KB
+/Users/dheerajmurthy/Library/HTTPStorages/org.kronenberg.WineBottler  # 84KB
+/Users/dheerajmurthy/Library/HTTPStorages/org.sparkle-project.DownloaderService  # 64KB
+
+=== Apple Silicon updates ===
+
+=== iOS device backups ===
+
+=== Time Machine incomplete backups ===
+
+=== Large files to review ===
+
+# ============================================
+# Summary
+# ============================================
+# Potential cleanup: 13.83GB
+# Items: 1466
+# Categories: 73

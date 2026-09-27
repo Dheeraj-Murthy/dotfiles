@@ -1,0 +1,76 @@
+font-family = "JetBrainsMono Nerd Font Mono"
+# font-style = SemiBold
+font-size = 12
+# theme = Tomorrow Night Burns
+theme = cyberdream
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = block
+adjust-cell-height = 20%
+
+# custom-shader = shaders/galaxy.glsl
+# custom-shader = shaders/matrix-rain.glsl
+
+
+# background-image = "'/Users/dheerajmurthy/Downloads/wallpaper/Yellow Lights Between Trees.jpg'"
+background-opacity=0.8
+background = 05050f
+background-blur=true
+foreground = ffffff
+font-thicken = true
+
+
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+window-padding-balance = true 
+window-save-state = always
+macos-titlebar-style = hidden
+window-colorspace = "display-p3"
+
+
+# keybindings
+keybind = ctrl+g>r=reload_config
+keybind = ctrl+g>x=close_surface
+keybind = ctrl+g>n=new_window
+
+# tabs 
+keybind = ctrl+g>c=new_tab
+keybind = ctrl+g>shift+l=next_tab
+keybind = ctrl+g>shift+h=previous_tab
+keybind = ctrl+g>comma=move_tab:-1
+keybind = ctrl+g>period=move_tab:1
+
+# quick tab switch
+keybind = ctrl+g>1=goto_tab:1
+keybind = ctrl+g>2=goto_tab:2
+keybind = ctrl+g>3=goto_tab:3
+keybind = ctrl+g>4=goto_tab:4
+keybind = ctrl+g>5=goto_tab:5
+keybind = ctrl+g>6=goto_tab:6
+keybind = ctrl+g>7=goto_tab:7
+keybind = ctrl+g>8=goto_tab:8
+keybind = ctrl+g>9=goto_tab:9
+
+# split
+keybind = ctrl+g>\=new_split:right
+keybind = ctrl+g>-=new_split:down
+
+keybind = ctrl+g>j=goto_split:bottom
+keybind = ctrl+g>k=goto_split:top
+keybind = ctrl+g>h=goto_split:left
+keybind = ctrl+g>l=goto_split:right
+
+keybind = ctrl+g>z=toggle_split_zoom
+# other
+copy-on-select = clipboard
+
+# custom keybinds to make life easier
+keybind = cmd+enter=esc:696969
+#keybind = cmd+delete=esc:ctrl+u
+keybind = cmd+backspace=text:\x15
+keybind = cmd+a=esc:696971
+keybind = cmd+s=esc:696970
+keybind = ctrl+u=esc:42069
+
+

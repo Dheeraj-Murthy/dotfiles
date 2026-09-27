@@ -1,0 +1,73 @@
+[completion]
+copilot = false
+activate_on_typing = true
+signature_hint_on_typing = false
+
+[package_management]
+manager = "pip"
+
+[keymap]
+preset = "default"
+
+[keymap.overrides]
+
+[mcp]
+presets = []
+
+[mcp.mcpServers]
+
+[snippets]
+include_default_snippets = true
+custom_paths = []
+
+[display]
+reference_highlighting = true
+cell_output = "below"
+default_table_max_columns = 50
+dataframes = "rich"
+code_editor_font_size = 14
+theme = "dark"
+default_width = "medium"
+default_table_page_size = 10
+
+[server]
+browser = "default"
+follow_symlink = false
+
+[language_servers.pylsp]
+enable_ruff = true
+enable_pyflakes = false
+enabled = false
+enable_pylint = false
+enable_mypy = true
+enable_pydocstyle = false
+enable_flake8 = false
+
+[runtime]
+on_cell_change = "autorun"
+std_stream_max_bytes = 1000000
+output_max_bytes = 8000000
+auto_instantiate = false
+watcher_on_save = "lazy"
+reactive_tests = true
+auto_reload = "autorun"
+default_csv_encoding = "utf-8"
+default_sql_output = "auto"
+show_tracebacks = false
+
+[save]
+format_on_save = false
+autosave = "after_delay"
+autosave_delay = 1000
+
+[ai.custom_providers]
+
+[ai.models]
+custom_models = []
+displayed_models = []
+
+[diagnostics]
+sql_linter = true
+
+[formatting]
+line_length = 79
